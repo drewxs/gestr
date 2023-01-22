@@ -1,0 +1,16 @@
+.webcam,
+.canvas {
+  position: absolute;
+  inset: 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.webcam {
+  background: black;
+  z-index: 9;
+}
+.canvas {
+  z-index: 10;
+}

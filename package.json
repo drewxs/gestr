@@ -1,0 +1,34 @@
+{
+  "name": "gest",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/font": "13.1.4",
+    "@tensorflow-models/handpose": "^0.0.7",
+    "@tensorflow/tfjs": "^4.2.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.2.0",
+    "@tensorflow/tfjs-converter": "^4.2.0",
+    "@tensorflow/tfjs-core": "^4.2.0",
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "eslint": "8.32.0",
+    "eslint-config-next": "13.1.4",
+    "fingerpose": "^0.1.0",
+    "next": "13.1.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-webcam": "^7.0.1",
+    "typescript": "4.9.4"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "prettier": "^2.8.3"
+  }
+}
