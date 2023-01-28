@@ -22,22 +22,16 @@ const Home = () => {
 
   const load = async () => {
     const net: model.HandPose = await model.load();
-    setInterval(() => {
-      detect(net);
-    }, 50);
+    setInterval(() => detect(net), 50);
   };
 
   const detect = async (net: model.HandPose) => {
     if (webcamRef.current?.video?.readyState === 4) {
       const video = webcamRef.current.video;
-      const width = webcamRef.current.video.videoWidth;
-      const height = webcamRef.current.video.videoHeight;
+      const canvas = canvasRef.current;
 
-      webcamRef.current.video.width = width;
-      webcamRef.current.video.height = height;
-
-      canvasRef.current.width = width;
-      canvasRef.current.height = height;
+      video.width = canvas.width = video.videoWidth;
+      video.height = canvas.height = video.videoHeight;
 
       const hand = await net.estimateHands(video);
 
@@ -47,14 +41,14 @@ const Home = () => {
           fp.Gestures.ThumbsUpGesture,
         ]);
 
-        const gesture = await GE.estimate(hand[0].landmarks, 8);
+        const estimation = await GE.estimate(hand[0].landmarks, 8);
 
-        if (gesture.gestures?.length > 0) {
-          const confidence = gesture.gestures.map(
+        if (estimation.gestures?.length > 0) {
+          const confidence = estimation.gestures.map(
             (prediction: { score: number }) => prediction.score,
           );
           const maxConfidence = confidence.indexOf(Math.max.apply(null, confidence));
-          setGesture(gesture.gestures[maxConfidence].name);
+          setGesture(estimation.gestures[maxConfidence].name);
         } else {
           setGesture('');
         }
@@ -62,7 +56,7 @@ const Home = () => {
         setGesture('');
       }
 
-      const ctx = canvasRef.current.getContext('2d')!;
+      const ctx = canvas.getContext('2d')!;
       drawHand(hand, ctx);
     }
   };
