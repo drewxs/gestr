@@ -1,0 +1,6 @@
+{
+  "*.{ts,tsx,js,jsx}": [
+    "prettier --config .prettierrc.json --write",
+    "eslint --no-ignore --max-warnings=0 --fix"
+  ]
+}
