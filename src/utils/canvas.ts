@@ -39,7 +39,7 @@ export const drawHand = (predictions: Prediction[], ctx: CanvasRenderingContext2
         ctx.beginPath();
         ctx.arc(x, y, 3, 0, 3 * Math.PI);
 
-        ctx.fillStyle = '#00ff00';
+        ctx.fillStyle = '#00ffff';
         ctx.fill();
       }
     });
