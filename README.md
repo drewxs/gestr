@@ -19,8 +19,6 @@ curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 ## Development
 
-In the project directory, you can run:
-
 ```bash
 # install dependencies
 pnpm i
